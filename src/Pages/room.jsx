@@ -2,6 +2,7 @@ import React,{useState,useEffect} from "react";
 import client,{ COLLECTION_ID_MESSAGES, DATABASE_ID, databases } from "../AppWriteConfig";
 import {ID,Query} from 'appwrite'
 import { Trash2 } from "react-feather";
+import Header from "../components/Header";
 function Room(){
     const[messages,setMessages]=useState([])
     const[messageBody,setMessageBody]=useState('')
@@ -50,9 +51,9 @@ function Room(){
     }   
     return(
         <main className="container">
-
+            <Header/>
     <div className="room--container">  
-
+       
         <form onSubmit={handleSubmit} id='message--form'>
             <div>
                 <textarea required maxLength='1000' placeholder="Say something..." onChange={(e)=>{setMessageBody(e.target.value)}} value={messageBody}>
